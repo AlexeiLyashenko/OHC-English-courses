@@ -559,7 +559,7 @@ body.scroll-hidden {
 	
 
 	&__img {
-
+		margin-bottom: 160px;
 		width: calc(50% - 75px);
 		display: flex;
 		justify-content: center;
@@ -633,3 +633,123 @@ body.scroll-hidden {
 		}
 	}
 }
+
+
+// Video
+
+.video {
+	margin-bottom: 150px;
+
+	&__title {
+		margin-bottom: 30px;
+		@include font(null, 60px, 72px);
+		font-weight: 700;
+	}
+
+	&__text {
+		margin-bottom: 60px;
+		@include font($euclid_font, 16px, 24px);
+		max-width: 750px;
+		letter-spacing: 1.5px;
+	}
+	&__container {
+		position: relative;
+		padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+		height: 0;
+		overflow: hidden;
+		& iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-width: 0;
+			outline-width: 0;
+		}
+	}
+}
+
+// Slider
+
+.slider {
+	
+	position: relative;
+
+	&__title {
+		margin-bottom: 75px;
+		@include font(null, 60px, 72px);
+		font-weight: 700;
+	}
+
+	&__container {
+		margin-bottom: 200px;
+		padding: 0 50px;
+	}
+
+	&__wrapper {
+	}
+
+	&__slide {
+		margin-right: 100px;
+		flex: 0 0 calc(45%);
+		display: flex;
+		align-items: center;
+	}
+
+	&__image {
+		margin-right: 30px;
+		max-width: 250px;
+		& img {
+			max-width: 100%;
+		}
+	}
+
+	&__body {
+	}
+
+	&__body-title {
+		margin-bottom: 25px;
+		@include font(null, 36px, 39.5px);
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
+
+	&__body-text {
+		margin-bottom: 35px;
+		@include font($euclid_font, 16px, 21px);
+		letter-spacing: 1px;
+	}
+
+	&__body-person {
+		@include font(null, 20px, 25px);
+		font-weight: 700;
+		letter-spacing: 1px;
+		color: #989898;
+	}
+}
+
+// Swiper arrows
+.swiper-button-prev,
+.swiper-button-next {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: calc(70% - 25px);
+	outline: none;
+}
+.swiper-button-prev {
+	transform: rotate(-180deg);
+	left: 0;
+}
+.swiper-button-next {
+	right: 0;
+	
+}
+.swiper-button-prev::before,
+.swiper-button-next::before {
+	@include svgMaskPseudo(50px, 50px, '../img/arrow-reviews.svg', 28px, $red_color);
+}
+
+.swiper-button-next {
+}
+
