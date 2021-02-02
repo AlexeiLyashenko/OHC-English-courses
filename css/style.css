@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Euclid Flex';
   src: url("../fonts/EuclidFlex-Regular.woff2") format("woff2"), url("../fonts/EuclidFlex-Regular.woff") format("woff"), url("../fonts/EuclidFlex-Regular.ttf") format("truetype");
@@ -785,6 +786,7 @@ body.scroll-hidden {
 }
 
 .test__img {
+  margin-bottom: 160px;
   width: calc(50% - 75px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -888,4 +890,138 @@ body.scroll-hidden {
   background-color: #B91A1B;
   -webkit-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
+}
+
+.video {
+  margin-bottom: 150px;
+}
+
+.video__title {
+  margin-bottom: 30px;
+  font-size: 60px;
+  line-height: 72px;
+  font-weight: 700;
+}
+
+.video__text {
+  margin-bottom: 60px;
+  font-family: "Euclid Flex";
+  font-size: 16px;
+  line-height: 24px;
+  max-width: 750px;
+  letter-spacing: 1.5px;
+}
+
+.video__container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+  height: 0;
+  overflow: hidden;
+}
+
+.video__container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+  outline-width: 0;
+}
+
+.slider {
+  position: relative;
+}
+
+.slider__title {
+  margin-bottom: 75px;
+  font-size: 60px;
+  line-height: 72px;
+  font-weight: 700;
+}
+
+.slider__container {
+  margin-bottom: 200px;
+  padding: 0 50px;
+}
+
+.slider__slide {
+  margin-right: 100px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(45%);
+          flex: 0 0 calc(45%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slider__image {
+  margin-right: 30px;
+  max-width: 250px;
+}
+
+.slider__image img {
+  max-width: 100%;
+}
+
+.slider__body-title {
+  margin-bottom: 25px;
+  font-size: 36px;
+  line-height: 39.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.slider__body-text {
+  margin-bottom: 35px;
+  font-family: "Euclid Flex";
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 1px;
+}
+
+.slider__body-person {
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #989898;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(70% - 25px);
+  outline: none;
+}
+
+.swiper-button-prev {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  left: 0;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-prev::before,
+.swiper-button-next::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 0;
+  -webkit-mask: url("../img/arrow-reviews.svg") no-repeat center;
+  mask: url("../img/arrow-reviews.svg") no-repeat center;
+  -webkit-mask-size: 28px;
+  mask-size: 28px;
+  background-color: #E12729;
 }
