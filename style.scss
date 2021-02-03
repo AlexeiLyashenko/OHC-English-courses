@@ -45,7 +45,7 @@ html, body {
 }
 
 body {
-	font-family: 'Helvetica Neue Cyr', 'Euclid Flex', 'sans-serif';
+	font-family: 'Helvetica Neue Cyr', $euclid_font, 'sans-serif';
 	color: $black_color;
 }
 .container {
@@ -191,7 +191,7 @@ body {
 				margin: 0 40px;
 				width: 25px;
 				height: 1px;
-				background-color: #989898;
+				background-color: $grey_color;
 				transform: rotate(90deg);
 				z-index: 2;
 		}
@@ -383,7 +383,7 @@ body.scroll-hidden {
 
 		&__start {
 			margin-bottom: 20px;
-			font-family: 'Euclid Flex';
+			font-family: $euclid_font;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -417,7 +417,7 @@ body.scroll-hidden {
 				width: 50%;
 				text-align-last: left;
 				height: 22px;
-				background-color: #3d3d3d;
+				background-color: $black_color;
 			}
 		}
 		&__price {
@@ -538,7 +538,7 @@ body.scroll-hidden {
 	&__num {
 		margin-right: 55px;
 		@include font(null, 150px, 125px);
-		color: #989898;
+		color: $grey_color;
 	}
 	&__body-title {
 		margin-bottom: 20px;
@@ -667,6 +667,38 @@ body.scroll-hidden {
 			outline-width: 0;
 		}
 	}
+	&__button {
+		position: absolute;
+		top: calc(50% - 50px);
+		left: calc(50% - 35px);
+		z-index: 3;
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		background-color: $red_color;
+		box-shadow:  4px 10px 50px rgba(218, 25, 27, 0.2);
+		transition: all .2s ease-in-out;
+		&::before {
+			content: '';
+			position: absolute;
+			top: calc(50% - 8px);
+			left: calc(50% - 7px);
+			z-index: 4;
+			width: 0px;
+			height: 0px;
+			border-left: 18px solid #fff;
+			border-top: 9px solid transparent;
+			border-bottom: 9px solid transparent;
+		}
+		&:hover {
+			background-color: $red_button_hover;
+			transition: all .2s ease-in-out;
+		}
+		&:active {
+			background-color: $red_button_active;
+			transition: all .1s ease-in-out;
+		}
+	}
 }
 
 // Slider
@@ -724,7 +756,7 @@ body.scroll-hidden {
 		@include font(null, 20px, 25px);
 		font-weight: 700;
 		letter-spacing: 1px;
-		color: #989898;
+		color: $grey_color;
 	}
 }
 
@@ -750,6 +782,206 @@ body.scroll-hidden {
 	@include svgMaskPseudo(50px, 50px, '../img/arrow-reviews.svg', 28px, $red_color);
 }
 
-.swiper-button-next {
+.registration {
+
+	&__title {
+		margin-bottom: 100px;
+		@include font(null, 60px, 72px);
+		font-weight: 700;
+	}
+
+	&__form {
+		& input {
+			border: none;
+			outline: none;
+			border-bottom: 4px solid $black_color;
+			@include font($euclid_font, 32px, 48px);
+			color: $grey_color;
+
+			&:focus {
+				color: $black_color;
+			}
+		}
+		& > input {
+			margin-bottom: 60px;
+			width: 100%;
+		}
+	}
+
+	&__row {
+		margin-bottom: 80px;
+		display: flex;
+		& input {
+			flex: 0 0 calc(50% - 110px);
+		}
+		& input:first-child {
+			margin-right: 220px;
+		}
+	}
+
+	&__button {
+		margin-bottom: 200px;
+		width: 300px;
+		height: 60px;
+		background-color: $red_color;
+		color: #fff;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 66px;
+		letter-spacing: 0em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-transform: uppercase;
+		box-shadow: 4px 10px 50px rgba(218, 25, 27, .2);
+		transition: all .3s ease-in-out;
+		&:hover {
+			background-color: $red_button_hover;
+			transition: all .3s ease-in-out;
+		}
+		&:active {
+			background-color: $red_button_active;
+			transition: all .1s ease-in-out;
+		}
+	}
 }
 
+
+// Footer
+
+.footer {
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__item {
+		margin-right: 300px;
+		flex: 0 1 33.333%;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&__address {
+	}
+
+	&__city {
+		margin-bottom: 12px;
+		display: flex;
+	}
+
+	&__city-svg {
+		margin-right: 23px;
+		position: relative;
+		width: 30px;
+		height: 30px;
+		&::before {
+			@include svgMaskPseudo(30px, 30px, '../img/geo.svg', 21px, $black_color);
+
+		}
+	}
+
+	&__city-text {
+		text-transform: uppercase;
+	}
+
+	&__street {
+		padding-left: 53px;
+		margin-bottom: 65px;
+	}
+
+	&__schedule {
+	}
+
+	&__schedule-title {
+		display: flex;
+	}
+
+	&__schedule-title-svg {
+		margin-right: 23px;
+		width: 30px;
+		height: 30px;
+		position: relative;
+		&::before {
+			@include svgMaskPseudo(30px, 30px, '../img/calendar.svg', 28px, $black_color);
+		}
+	}
+
+	&__schedule-title-text {
+		margin-bottom: 25px;
+		white-space: nowrap;
+	}
+	&__schedule-days {
+		margin-bottom: 10px;
+	}
+	&__schedule-days,
+	&__schedule-dayoff {
+		padding-left: 53px;
+	}
+
+	&__nav {
+	}
+
+	&__list {
+		& li {
+			margin-bottom: 25px;
+			& a {
+				color: $black_color;
+				text-transform: uppercase;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	&__phones {
+		& a {
+			margin-bottom: 15px;
+			color: $black_color;
+			white-space: nowrap;
+			margin-left: 50px;
+			&:first-child {
+				margin-left: 0px;
+			}
+		}
+	}
+
+	&__tel {
+		display: flex;
+	}
+
+	&__tel-icon {
+		width: 30px;
+		height: 30px;
+		position: relative;
+		&::before {
+			@include svgMaskPseudo(30px, 30px, '../img/phone.svg', 28px, $black_color);
+		}
+	}
+
+	&__tel-text {
+		margin-left: 20px;
+	}
+
+	&__phones-freecall {
+		margin-left: 50px;
+		@include font(null, 12px, 1em);
+		color: $grey_color;
+	}
+
+	&__copyright {
+		margin-top: 100px;
+		padding-left: 53px;
+		color: $grey_color;
+	}
+}
+
+// 
+.-footer-min-text {
+	@include font(null, 20px, 1em);
+}
+.-footer-max-font {
+	@include font(null, 30px, 1em);
+	font-weight: 700;
+}

@@ -19,10 +19,7 @@
 					<span class="ru">ru</span>
 					<div class="header__line"></div>
 					<a class="header__tel" href="#"></a>
-					<div class="header__burger">menu
-					</div>
-					
-					
+					<div class="header__burger">menu</div>
 				</div>
 				<nav class="header__list">
 					<ul>
@@ -240,8 +237,10 @@
 				<div class="video__title">Speaking club</div>
 				<div class="video__text">In an informal format. No more boring sitting around in a circle and discussing – how important it is to learn English… Practice your speaking in a fun, interactive and immersive way! With games, workshops, activities, discussions and lots more.</div>
 				<div class="video__container">
-					<iframe src="https://www.youtube.com/embed/0NyQTqpsh_8?controls=0" width="100%" height="780px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>							
+					<video src="" poster="img/video.png"></video>
+					<!-- <iframe src="https://www.youtube.com/embed/0NyQTqpsh_8?controls=0" width="100%" height="780px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+					<a href="#" class="video__button"></a>
+				</div>
 			</div>
 			<div class="slider">
 				<div class="slider__title">Why people choose us</div>
@@ -292,8 +291,66 @@
 				<div class="swiper-button-prev"></div>
 				<div class="swiper-button-next"></div>
 			</div>
+			<div class="registration">
+				<div class="registration__title">Book your place in a group</div>
+				<form class="registration__form">
+					<input type="text" name="name" placeholder="Your name">
+					<div class="registration__row">
+						<input type="phone" name="phone" placeholder="Phone">
+						<input type="email" name="email" placeholder="Email">
+					</div>
+				</form>
+				<a class="registration__button" href="#">book</a>
+			</div>
 		</div>
 	</main>
+	<footer class="footer">
+		<div class="container">
+			<div class="footer__row">
+				<div class="footer__item">
+					<div class="footer__address">
+						<div class="footer__city">
+							<div class="footer__city-svg"></div>
+							<div class="footer__city-text -footer-max-font">Kharkiv</div>
+						</div>
+						<div class="footer__street -footer-min-font">8342 James St undefined</div>
+					</div>
+					<div class="footer__schedule">
+						<div class="footer__schedule-title">
+							<div class="footer__schedule-title-svg"></div>
+							<div class="footer__schedule-title-text -footer-max-font">School schedule</div>
+						</div>
+						<div class="footer__schedule-days -footer-min-font">Mon. — Sat. : 8:00 - 21:00
+						</div>
+						<div class="footer__schedule-dayoff -footer-min-font">Day off — Sunday</div>
+					</div>
+				</div>
+				<div class="footer__item">
+					<nav class="footer__nav">
+						<ul class="footer__list -footer-max-font">
+							<li><a href="#">01.courses</a></li>
+							<li><a href="#">02.languages</a></li>
+							<li><a href="#">03.testing</a></li>
+							<li><a href="#">04.about ohc english</a></li>
+							<li><a href="#">05.contacts</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="footer__item">
+					<div class="footer__phones">
+						<a class="footer__tel" href="#">
+							<div class="footer__tel-icon"></div>
+							<div class="footer__tel-text -footer-max-font">(063) 199 46 99</div>
+						</a>
+						<a class="footer__tel -footer-max-font" href="#">(057) 740 92 84</a>
+						<a class="footer__tel -footer-max-font" href="#">(050) 119 66 29</a>
+						<p class="footer__phones-freecall">free in Ukraine from any number </p>
+					</div>
+				</div>
+			</div>
+			<div class="footer__copyright">Copyright © 2016 — 2020. All Rights Reserved</div>
+		</div>
+	</footer>
 </div>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
