@@ -98,6 +98,7 @@ body {
 			height: 16px;
 			position: relative;
 			z-index: 2;
+			cursor: pointer;
 			&::before {
 				@include svgMaskPseudo(16px, 16px, '../img/phone.svg', 15px, $black_color);
 			}
@@ -204,6 +205,109 @@ body.scroll-hidden {
 	position: absolute;
 	top: -100%;
 }
+
+// Popup
+
+
+// .popup:hover .popup__container {
+// 	opacity: 1;
+// 	visibility: visible;
+// 	transition: .3s ease;
+// }
+
+.popup {
+	position: relative;
+	
+	&__container {
+		padding: 50px 40px;
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 40px;
+		right: -60px;
+		background-color: #fff;
+		transition: .3s ease;
+		box-shadow: 4px 10px 50px rgba(218, 25, 27, 0.2);
+	}
+	&__container.pop-open {
+		opacity: 1;
+		visibility: visible;
+		transition: .3s ease;
+	}
+	&__body {
+		position: relative;
+		z-index: 2;
+		
+		width: 400px;
+		// height: 500px;
+	}
+
+	&__title {
+		margin-bottom: 50px;
+		@include font(null, 22px, 30px);
+	}
+
+	&__form {
+		& input {
+			width: 100%;
+			border: none;
+			outline: none;
+			border-bottom: 3px solid rgba(61, 61, 61, .8);
+			background-color: #fff;
+			@include font($euclid_font, 20px, 1em);
+			&:first-child {
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	&__button {
+		margin: 40px 0 70px 0;
+		width: 250px;
+		height: 50px;
+		background-color: $red_color;
+		color: #fff;
+		font-size: 15px;
+		font-weight: 700;
+		line-height: 50px;
+		letter-spacing: 0em;
+		text-align: center;
+		text-transform: uppercase;
+		box-shadow: 4px 10px 50px rgba(218, 25, 27, .2);
+		transition: all .3s ease-in-out;
+
+		&:hover {
+			background-color: $red_button_hover;
+			transition: all .3s ease-in-out;
+		}
+		&:active {
+			background-color: $red_button_active;
+			transition: all .1s ease-in-out;
+		}
+	}
+
+	&__telephone {
+		display: flex;
+		color: $black_color;
+		&:last-child {
+			margin-top: 30px;
+		}
+	}
+
+	&__phone-svg {
+		margin-right: 20px;
+		width: 30px;
+		height: 30px;
+		position: relative;
+		&::before {
+			@include svgMaskPseudo(30px, 30px, '../img/phone.svg', 28px, $black_color);
+		}
+	}
+
+	&__phone-text {
+	}
+}
+
 
 // Header Main  
 
@@ -972,6 +1076,7 @@ body.scroll-hidden {
 
 	&__copyright {
 		margin-top: 100px;
+		padding-bottom: 100px;
 		padding-left: 53px;
 		color: $grey_color;
 	}
