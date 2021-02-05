@@ -34,6 +34,12 @@ $euclid_font: 'Euclid Flex';
 	line-height: $l-height;
 }
 
+@mixin media ($media_width, ) {
+	@media (max-width: $media_width) {
+		@content
+	}
+}
+
 html.scroll-hidden {
 	overflow-x: hidden;
 	margin-right: calc(-1 * (100vw - 100%));
@@ -57,7 +63,7 @@ body {
 .header {
 
 		&__row {
-			padding-top: 50px;
+			padding-top: 35px;
 			margin-bottom: 120px;
 			display: flex;
 			justify-content: space-between;
@@ -330,6 +336,13 @@ body.scroll-hidden {
 		letter-spacing: 0.02em;
 		text-align: left;
 		text-transform: uppercase;
+		@include media (900px) {
+			@include font(null, 65px, 75px);
+			margin-bottom: 95px;
+		}
+		@include media (767px) {
+			@include font(null, 55px ,65px);
+		}
 	}
 
 	&__text {
@@ -363,10 +376,16 @@ body.scroll-hidden {
 		}
 	}
 	&__img {
-		width: 520px;
+		flex: 0 0 520px;
 		height: 520px;
 		& img {
-			max-width: 100%;
+			min-width: 100%;
+		}
+		@include media (990px) {
+			flex: 0 0 420px;
+		}
+		@include media (800px) {
+			flex: 0 0 350px;
 		}
 	}
 }
