@@ -1,4 +1,4 @@
-
+// Menu
 
 let burgerMenu = document.querySelector('.header__burger');
 let menuActive = document.querySelector('.header__list');
@@ -15,7 +15,9 @@ function scrollHidden() {
 
 burgerMenu.addEventListener('click', () => {
 	menuToggle(menuActive, 'menuactive');
-	scrollHidden()
+	if (windowSize < 500) {
+		scrollHidden();
+	}
 });
 
 burgerMenu.addEventListener('click', () => {
@@ -43,3 +45,10 @@ new Swiper('.slider__container', {
 	slidesPerView: 2,
 });
 
+// Hide menu text
+
+let windowSize = document.documentElement.clientWidth;
+
+if (windowSize < 500) {
+	burgerMenu.innerHTML = '';
+}

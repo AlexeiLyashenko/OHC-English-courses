@@ -43,11 +43,18 @@ $euclid_font: 'Euclid Flex';
 html.scroll-hidden {
 	overflow-x: hidden;
 	margin-right: calc(-1 * (100vw - 100%));
+	@include media(500px) {
+		margin: 0;
+	}
 }
 html, body {
 	margin: 1em 0;
 	width: 100%;
 	height: 100%;
+	@include media(500px) {
+		margin: 0;
+		overflow: hidden;
+	}
 }
 
 body {
@@ -64,10 +71,15 @@ body {
 
 		&__row {
 			padding-top: 35px;
-			margin-bottom: 120px;
+			margin-bottom: 60px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			@include media(700px) {
+				padding-top: 0;
+			}
+			@include media(500px) {
+			margin-top: 1em;			}
 		}
 
 		&__logo {
@@ -77,6 +89,9 @@ body {
 			z-index: 3;
 			&::before {
 				@include svgMaskPseudo(220px, 45px, '../img/logo.svg', 220px, #050505);
+				@include media(450px) {
+					@include svgMaskPseudo(132px, 45px, '../img/logo__mobile.svg', 130px, #050505);
+				}
 			}
 		}
 
@@ -108,6 +123,9 @@ body {
 			&::before {
 				@include svgMaskPseudo(16px, 16px, '../img/phone.svg', 15px, $black_color);
 			}
+			@include media(600px) {
+				margin-right: 20px;
+			}
 		}
 
 		&__burger {
@@ -118,12 +136,16 @@ body {
 			padding-right: 80px;
 			text-transform: uppercase;
 			cursor: pointer;
+			&__burger:hover:after {
+				width: 27px;
+				transition: .2s ease-in;
+			}
 			&:before,
 			&:after {
 				content: '';
 				position: absolute;
 				right: 0;
-				height: 3px;
+				height: 4px;
 				background-color: $black_color;
 			}
 			&:before {
@@ -152,22 +174,24 @@ body {
 					transition: .3s ease-in;
 				}
 			}
+			@include media(500px) {
+				padding-right: 25px;
+				margin-left: 0;
+			}
 		}
-		.header__burger:hover:after {
-			width: 27px;
-			transition: .2s ease-in;
-		}
+		
 		&__list {
 			position: absolute;
 			left: 0;
 			top: -200%;
 			z-index: 2;
 			width: 100%;
-			height: 80%;
+			height: 90%;
 			margin-top: 150px;
 			background-color: #fff;
 			transition: .3s ease-in-out;
 			& ul {
+				margin-left: 40px;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -179,21 +203,35 @@ body {
 				&:hover {
 					text-decoration: line-through;				
 				}
+				@include media(970px) {
+					&:first-child {
+						margin-top: 50px;
+					}
+				}
 			}
 			& a {
-				font-size: 100px;
-				font-style: normal;
+				@include font(null, 100px, 90px);
 				font-weight: 900;
-				line-height: 90px;
 				color: $black_color;
 				text-transform: uppercase;
+				@include media(970px) {
+					@include font(null, 70px, 65px);
+				}
+				@include media(700px) {
+					&:first-child {
+						@include font(null, 55px, 40px);
+					}
+				}
 			}
 			&.menuactive {
 				top: 0;
 				transition: .4s ease-in-out;
 				overflow: hidden;
+				@include media(700px) {
+					margin-top: 100px;
+				}
 			}
-			}
+		}
 			&__line {
 				margin: 0 40px;
 				width: 25px;
@@ -201,11 +239,17 @@ body {
 				background-color: $grey_color;
 				transform: rotate(90deg);
 				z-index: 2;
-		}
+				@include media(600px) {
+					margin: 0px 10px;
+				}
+			}
 }
 body.scroll-hidden {
 	overflow: hidden;
 	margin-right: calc(-1 * (100vw - 100%));
+	@include media(500px) {
+		margin: 0;
+	}
 }
 .ru {
 	position: absolute;
@@ -213,13 +257,6 @@ body.scroll-hidden {
 }
 
 // Popup
-
-
-// .popup:hover .popup__container {
-// 	opacity: 1;
-// 	visibility: visible;
-// 	transition: .3s ease;
-// }
 
 .popup {
 	position: relative;
@@ -245,7 +282,9 @@ body.scroll-hidden {
 		z-index: 2;
 		
 		width: 400px;
-		// height: 500px;
+		@include media(767px) {
+			width: 320px;
+		}
 	}
 
 	&__title {
@@ -309,9 +348,6 @@ body.scroll-hidden {
 			@include svgMaskPseudo(30px, 30px, '../img/phone.svg', 28px, $black_color);
 		}
 	}
-
-	&__phone-text {
-	}
 }
 
 
@@ -322,6 +358,9 @@ body.scroll-hidden {
 	&__main {
 		display: flex;
 		justify-content: space-between;
+		@include media(700px) {
+			flex-direction: column-reverse;
+		}
 	}
 
 	&__body {
@@ -350,6 +389,9 @@ body.scroll-hidden {
 		@include font($euclid_font, 28px, 36px);
 		letter-spacing: 0.04em;
 		text-align: left;
+		@include media(767px) {
+			@include font($euclid_font, 24px, 32px);
+		}
 	}
 
 	&__button {
@@ -378,14 +420,15 @@ body.scroll-hidden {
 	&__img {
 		flex: 0 0 520px;
 		height: 520px;
-		& img {
-			min-width: 100%;
-		}
 		@include media (990px) {
 			flex: 0 0 420px;
 		}
 		@include media (800px) {
 			flex: 0 0 350px;
+		}
+		@include media (700px) {
+			max-width: 350px;
+			margin: 0 auto;
 		}
 	}
 }
@@ -395,6 +438,9 @@ body.scroll-hidden {
 		margin: 40px 0 200px;
 		display: flex;
 		justify-content: space-between;
+		@include media(750px) {
+			flex-wrap: wrap;
+		}
 	}
 
 	&__items {
@@ -407,6 +453,9 @@ body.scroll-hidden {
 		line-height: 70px;
 		letter-spacing: 0.05em;
 		text-align: left;
+		@include media(850px) {
+			@include font(null, 35px, 45px);
+		}
 	}
 
 	&__items--text {
@@ -414,6 +463,9 @@ body.scroll-hidden {
 		letter-spacing: 0.04em;
 		text-align: left;
 		white-space: nowrap;
+		@include media(850px) {
+			@include font(null, 22px, 38px);
+		}
 	}
 }
 
