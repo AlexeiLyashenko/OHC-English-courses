@@ -53,7 +53,7 @@ html, body {
 	height: 100%;
 	@include media(500px) {
 		margin: 0;
-		overflow: hidden;
+		overflow-x: hidden;
 	}
 }
 
@@ -79,19 +79,27 @@ body {
 				padding-top: 0;
 			}
 			@include media(500px) {
-			margin-top: 1em;			}
+			margin-top: 1em;		
+			}
+			@include media(450px) {
+				margin-bottom: 20px;
+		}
 		}
 
 		&__logo {
-			width: 220px;
-			height: 45px;
+			// width: 220px;
+			display: inline-flex;
+			height: 40px;
 			position: relative;
 			z-index: 3;
 			&::before {
 				@include svgMaskPseudo(220px, 45px, '../img/logo.svg', 220px, #050505);
 				@include media(450px) {
-					@include svgMaskPseudo(132px, 45px, '../img/logo__mobile.svg', 130px, #050505);
+					@include svgMaskPseudo(103px, 40px, '../img/logo__mobile.svg', 100px, #050505);
 				}
+			}
+			@include media(450px) {
+				// width: 220px;
 			}
 		}
 
@@ -195,6 +203,9 @@ body {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				@include media(450px) {
+					margin-left: 20px;
+				}
 			}
 			& li {
 				margin-bottom: 35px;
@@ -208,6 +219,16 @@ body {
 						margin-top: 50px;
 					}
 				}
+				@include media(550px) {
+					margin-bottom: 30px;
+					font-size: 30px;
+				}
+				@include media(500px) {
+					&:first-child {
+						margin-top: 20px;
+					}
+					font-size: 25px;
+				}
 			}
 			& a {
 				@include font(null, 100px, 90px);
@@ -218,9 +239,16 @@ body {
 					@include font(null, 70px, 65px);
 				}
 				@include media(700px) {
-					&:first-child {
-						@include font(null, 55px, 40px);
-					}
+					@include font(null, 55px, 40px);
+				}
+				@include media(550px) {
+					@include font(null, 45px, 40px);
+				}
+				@include media(450px) {
+					@include font(null, 35px, 35px);
+				}
+				@include media(350px) {
+					@include font(null, 30px, 30px);
 				}
 			}
 			&.menuactive {
@@ -271,6 +299,13 @@ body.scroll-hidden {
 		background-color: #fff;
 		transition: .3s ease;
 		box-shadow: 4px 10px 50px rgba(218, 25, 27, 0.2);
+		@include media(500px) {
+			right: 0px;
+			padding: 40px 30px;
+		}
+		@include media(400px) {
+			right: -20px;
+		}
 	}
 	&__container.pop-open {
 		opacity: 1;
@@ -284,6 +319,12 @@ body.scroll-hidden {
 		width: 400px;
 		@include media(767px) {
 			width: 320px;
+		}
+		@include media(450px) {
+			width: 280px;
+		}
+		@include media(374px) {
+			width: 240px;
 		}
 	}
 
@@ -320,7 +361,6 @@ body.scroll-hidden {
 		text-transform: uppercase;
 		box-shadow: 4px 10px 50px rgba(218, 25, 27, .2);
 		transition: all .3s ease-in-out;
-
 		&:hover {
 			background-color: $red_button_hover;
 			transition: all .3s ease-in-out;
@@ -328,6 +368,9 @@ body.scroll-hidden {
 		&:active {
 			background-color: $red_button_active;
 			transition: all .1s ease-in-out;
+		}
+		@include media(500px) {
+			margin: 30px 0 50px 0;
 		}
 	}
 
@@ -382,6 +425,13 @@ body.scroll-hidden {
 		@include media (767px) {
 			@include font(null, 55px ,65px);
 		}
+		@include media (450px) {
+			@include font(null, 45px ,60px);
+			margin-bottom: 30px;
+		}
+		@include media (350px) {
+			@include font(null, 40px ,55px);
+		}
 	}
 
 	&__text {
@@ -391,6 +441,9 @@ body.scroll-hidden {
 		text-align: left;
 		@include media(767px) {
 			@include font($euclid_font, 24px, 32px);
+		}
+		@include media(450px) {
+			margin-bottom: 50px;
 		}
 	}
 
@@ -1160,4 +1213,7 @@ body.scroll-hidden {
 .-footer-max-font {
 	@include font(null, 30px, 1em);
 	font-weight: 700;
+	@include media(370px) {
+		@include font(null, 25px, 1em);
+	}
 }

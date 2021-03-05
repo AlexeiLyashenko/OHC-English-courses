@@ -15,7 +15,7 @@ function scrollHidden() {
 
 burgerMenu.addEventListener('click', () => {
 	menuToggle(menuActive, 'menuactive');
-	if (windowSize < 500) {
+	if (getWindowSize() < 500) {
 		scrollHidden();
 	}
 });
@@ -23,6 +23,26 @@ burgerMenu.addEventListener('click', () => {
 burgerMenu.addEventListener('click', () => {
 	menuToggle(burgerMenu, 'active_burger')
 });
+
+// Hide menu text
+
+if (getWindowSize() < 500) {
+	burgerMenu.innerHTML = '';
+}
+
+window.addEventListener('resize', function () {
+	if (getWindowSize() < 500) {
+		burgerMenu.innerHTML = '';
+	} else if (getWindowSize() > 500) {
+		burgerMenu.innerHTML = 'menu';
+	}
+	console.log(getWindowSize());
+})
+
+function getWindowSize() {
+	return document.documentElement.clientWidth;
+}
+
 
 // Popup tel
 
@@ -45,10 +65,3 @@ new Swiper('.slider__container', {
 	slidesPerView: 2,
 });
 
-// Hide menu text
-
-let windowSize = document.documentElement.clientWidth;
-
-if (windowSize < 500) {
-	burgerMenu.innerHTML = '';
-}
