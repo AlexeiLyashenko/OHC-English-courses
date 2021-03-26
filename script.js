@@ -15,13 +15,12 @@ function scrollHidden() {
 
 burgerMenu.addEventListener('click', () => {
 	menuToggle(menuActive, 'menuactive');
-	if (getWindowSize() < 500) {
-		scrollHidden();
-	}
+
+	scrollHidden();
 });
 
 burgerMenu.addEventListener('click', () => {
-	menuToggle(burgerMenu, 'active_burger')
+	menuToggle(burgerMenu, 'active_burger');
 });
 
 // Hide menu text
@@ -37,7 +36,7 @@ window.addEventListener('resize', function () {
 		burgerMenu.innerHTML = 'menu';
 	}
 	console.log(getWindowSize());
-})
+});
 
 function getWindowSize() {
 	return document.documentElement.clientWidth;

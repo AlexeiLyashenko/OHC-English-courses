@@ -123,10 +123,9 @@ body {
 
 		&__tel {
 			margin-right: 40px;
-			width: 16px;
-			height: 16px;
+			width: 18px;
+			height: 18px;
 			position: relative;
-			z-index: 2;
 			cursor: pointer;
 			&::before {
 				@include svgMaskPseudo(16px, 16px, '../img/phone.svg', 15px, $black_color);
@@ -288,12 +287,14 @@ body.scroll-hidden {
 
 .popup {
 	position: relative;
+	z-index: 1;
 	
 	&__container {
 		padding: 50px 40px;
 		opacity: 0;
 		visibility: hidden;
 		position: absolute;
+		z-index: 2;
 		top: 40px;
 		right: -60px;
 		background-color: #fff;
@@ -946,9 +947,6 @@ body.scroll-hidden {
 		padding: 0 50px;
 	}
 
-	&__wrapper {
-	}
-
 	&__slide {
 		margin-right: 100px;
 		flex: 0 0 calc(45%);
@@ -962,9 +960,6 @@ body.scroll-hidden {
 		& img {
 			max-width: 100%;
 		}
-	}
-
-	&__body {
 	}
 
 	&__body-title {
@@ -1092,9 +1087,6 @@ body.scroll-hidden {
 		}
 	}
 
-	&__address {
-	}
-
 	&__city {
 		margin-bottom: 12px;
 		display: flex;
@@ -1118,9 +1110,6 @@ body.scroll-hidden {
 	&__street {
 		padding-left: 53px;
 		margin-bottom: 65px;
-	}
-
-	&__schedule {
 	}
 
 	&__schedule-title {
@@ -1147,9 +1136,6 @@ body.scroll-hidden {
 	&__schedule-days,
 	&__schedule-dayoff {
 		padding-left: 53px;
-	}
-
-	&__nav {
 	}
 
 	&__list {

@@ -209,10 +209,9 @@ body {
 
 .header__tel {
   margin-right: 40px;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   position: relative;
-  z-index: 2;
   cursor: pointer;
 }
 
@@ -453,6 +452,7 @@ body.scroll-hidden {
 
 .popup {
   position: relative;
+  z-index: 1;
 }
 
 .popup__container {
@@ -460,6 +460,7 @@ body.scroll-hidden {
   opacity: 0;
   visibility: hidden;
   position: absolute;
+  z-index: 2;
   top: 40px;
   right: -60px;
   background-color: #fff;
@@ -1723,3 +1724,4 @@ body.scroll-hidden {
     line-height: 1em;
   }
 }
+/*# sourceMappingURL=style.css.map */
