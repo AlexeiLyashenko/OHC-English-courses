@@ -62,5 +62,27 @@ new Swiper('.slider__container', {
 	},
 	autoHeight: false,
 	slidesPerView: 2,
+	spaceBetween: 150,
+	breakpoints: {
+		// when window width is >= 320px
+		320: {
+		  slidesPerView: 1,
+		  spaceBetween: 60
+		},
+		// when window width is >= 480px
+		500: {
+		  slidesPerView: 1,
+		  spaceBetween: 60
+		},
+		// when window width is >= 640px
+		640: {
+		  slidesPerView: 2,
+		  spaceBetween: 100
+		},
+		768: {
+			slidesPerView: 2,
+			spaceBetween: 100
+		  }
+	  }
 });
 

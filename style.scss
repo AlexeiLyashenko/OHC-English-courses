@@ -87,7 +87,6 @@ body {
 		}
 
 		&__logo {
-			// width: 220px;
 			display: inline-flex;
 			height: 40px;
 			position: relative;
@@ -461,7 +460,9 @@ body.scroll-hidden {
 		text-transform: uppercase;
 		box-shadow: 4px 10px 50px rgba(218, 25, 27, .2);
 		transition: all .3s ease-in-out;
-
+		@include media(500px) {
+			margin: 0 auto;
+		}
 		&:hover {
 			background-color: $red_button_hover;
 			transition: all .3s ease-in-out;
@@ -495,10 +496,31 @@ body.scroll-hidden {
 		@include media(750px) {
 			flex-wrap: wrap;
 		}
+		@include media(500px) {
+			flex-direction: column;
+			align-items: center;
+			margin: 75px 0 150px;
+		}
 	}
 
 	&__items {
+		margin-right: 15px;
 		flex: 0 0 20%;
+		
+		&:last-child {
+			margin-right: 0;
+			@include media (655px) {
+				margin: 15px auto 0;
+			}
+			@include media(500px) {
+				margin: 15px 0 0;
+			}
+		}
+		&:nth-child(2) {
+			@include media(500px) {
+				margin-top: 30px;
+			}
+		}
 	}
 
 	&__items--title {
@@ -530,12 +552,23 @@ body.scroll-hidden {
 .course {
 	display: flex;
 	justify-content: space-between;
-
+	@include media(1050px) {
+		flex-wrap: wrap;
+	}
 		&__title {
 			margin-bottom: 250px;
 			@include font(null, 60px, 72px);
 			font-weight: 700;
 			letter-spacing: 0.05em;
+			@include media(500px) {
+				@include font(null, 55px, 60px);
+			}
+			@include media(400px) {
+				@include font(null, 50px, 55px);
+			}
+			@include media(351px) {
+				@include font(null, 45px, 50px);
+			}
 		}
 		&__item {
 			display: flex;
@@ -543,9 +576,25 @@ body.scroll-hidden {
 			position: relative;
 			z-index: 1;
 			margin-right: 40px;
-
+			@include media(1150px) {
+				margin-right: 20px;
+			}
+			@include media(1050px) {
+				margin: 0 auto;
+				flex: 0 0 70%;
+				margin-bottom: 250px;
+			}
+			@include media(1050px) {
+				flex: 0 0 80%;
+			}
 			&:last-child {
-				margin-right: 0;
+				@include media(1050px) {
+					padding-top: 55px;
+					margin-bottom: 20px;
+				}
+				@include media(340px) {
+					padding-top: 25px;
+				}
 			}
 
 		}
@@ -558,27 +607,83 @@ body.scroll-hidden {
 			max-width: 100%;
 			& img {
 				max-width: 330px;
+				@include media(1281px) {
+					max-width: 300px;
+				}
+				@include media(1050px) {
+					max-width: 360px;
+				}
+				@include media(600px) {
+					max-width: 320px;
+				}
+				&:nth-child(odd) {
+					@include media(340px) {
+						max-width: 280px;
+					}
+				}
+			}
+			&:nth-child(odd) {
+				@include media(340px) {
+					padding-left: 40px;
+				}
 			}
 			&.-online {
 				top: -270px;
+				@include media(1281px) {
+					top: -240px;
+				}
+				@include media(1050px) {
+					top: -215px;
+				}
 			}
+			@include media(1281px) {
+				padding-left: 35px;
+			}
+			@include media(1281px) {
+				top: -170px;
+			}
+			@include media(1110px) {
+				padding-left: 20px;
+			}
+			@include media(1050px) {
+				top: -210px;
+				left: calc(50% - 180px);
+			}
+			@include media(340px) {
+				top: -190px;
+			}
+			// &:last-child {
+			// 	@include media(1050px) {
+			// 		top: -215px;
+			// 	}
+			// }
 		}
 			
 	}
 .card {
-	padding: 100px 80px;
+	padding: 80px 60px;
 	width: 100%;
-	height: 680px;
 	z-index: 2;
 	position: relative;
 	background-color: #fff;
 	box-shadow: rgba(186, 186, 186, 0.19) 0px 4px 30px 0px;
-
+	@include media(1281px) {
+		padding: 60px 40px;
+	}
+	@include media(1150px) {
+		padding: 40px 20px;
+	}
 
 		&__title {
 			margin-bottom: 25px;
 			@include font(null, 50px, 65px);
 			font-weight: 700;
+			@include media(400px) {
+				@include font(null, 45px, 60px);
+			}
+			@include media(350px) {
+				@include font(null, 40px, 55px);
+			}
 		}
 
 		&__month {
@@ -598,6 +703,12 @@ body.scroll-hidden {
 		&__month-text {
 			@include font($euclid_font, 35px, 45px);
 			letter-spacing: 0em;
+			@include media(400px) {
+				@include font(null, 30px, 60px);
+			}
+			@include media(350px) {
+				@include font(null, 25px, 60px);
+			}
 		}
 
 		&__week {
@@ -687,12 +798,18 @@ body.scroll-hidden {
 .price-text {
 	font-size: 20px;
 	letter-spacing: -0.005em;
+	@include media(400px) {
+		@include font(null, 18px, null);
+	}
 }
 .price-sum {
 	font-size: 24px;
+	@include media(400px) {
+		@include font(null, 22px, null);
+	}
 }
 .more-courses {
-	margin: 45px 0 110px 0;
+	margin: 45px 0 150px 0;
 	text-align: right;
 	display: flex;
 	justify-content: flex-end;
@@ -727,6 +844,9 @@ body.scroll-hidden {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		@include media(769px) {
+			flex-direction: column;
+		}
 	}
 
 	&__text {
@@ -735,16 +855,27 @@ body.scroll-hidden {
 		letter-spacing: 3px;
 		font-weight: 700;
 		white-space: nowrap;
+		@include media(1051px) {
+			white-space: normal;
+			flex: 1 0 70%;
+			@include font(null, 52px, 62px);
+
+		}
 	}
 
 	&__img {
 		flex: 1 1 50%;
 		display: flex;
 		justify-content: center;
-		
 		& img {
 			width: 270px;
 			max-width: 100%;
+			@include media(1051px) {
+				min-width: 240px;
+			}
+		}
+		@include media(1051px) {
+			flex: 1 1 40%;
 		}
 	}
 
@@ -757,17 +888,59 @@ body.scroll-hidden {
 		flex: 1 1 calc(50% - 95px);
 		display: flex;
 		align-items: flex-start;
-		&:first-child {
-			margin-bottom: 60px;
-		}
 		&:nth-child(odd) {
 			margin-right: 190px;
+		}
+		&:nth-child(2),
+		&:nth-child(1) {
+			margin-bottom: 40px;
+			@include media(769px) {
+				margin-bottom: 75px;
+			}
+		}
+		@include media(1281px) {
+			flex: 1 1 calc(50% - 50px);
+			&:nth-child(odd) {
+				margin-right: 100px;
+			}
+		}
+		@include media(1051px) {
+			flex: 1 1 calc(50% - 30px);
+			&:nth-child(odd) {
+				margin-right: 60px;
+			}
+		}
+		@include media(900px) {
+			flex: 1 1 calc(50% - 15px);
+			&:nth-child(odd) {
+				margin-right: 30px;
+			}
+		}
+		@include media(769px) {
+			flex: 1 0 100%;
+			margin-bottom: 75px;
+			&:nth-child(odd) {
+				margin-right: 0px;
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 	&__num {
 		margin-right: 55px;
 		@include font(null, 150px, 125px);
 		color: $grey_color;
+		@include media(1281px) {
+			margin-right: 35px;
+		}
+		@include media(1051px) {
+			@include font(null, 125px, 105px);
+		}
+		@include media(900px) {
+			margin-right: 20px;
+			@include font(null, 100px, 90px);
+		}
 	}
 	&__body-title {
 		margin-bottom: 20px;
@@ -785,7 +958,13 @@ body.scroll-hidden {
 	margin-top: 190px;
 	display: flex;
 	align-items: center;
-	
+	@include media(1051px) {
+		align-items: flex-start;
+	}
+	@include media(769px) {
+		flex-direction: column;
+		align-items: center;
+	}
 
 	&__img {
 		margin-bottom: 160px;
@@ -796,6 +975,19 @@ body.scroll-hidden {
 			width: 592px;
 			max-width: 100%;
 		}
+		@include media(1281px) {
+			width: calc(50% - 50px);
+		}
+		@include media(1051px) {
+			width: calc(50% - 20px);
+		}
+		@include media(1051px) {
+			width: 50%;
+		}
+		@include media(769px) {
+			margin-bottom: 0;
+			width: 70%;
+		}
 	}
 
 	&__body {
@@ -805,6 +997,24 @@ body.scroll-hidden {
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: flex-start;
+		@include media(1281px) {
+			margin-left: 100px;
+			width: calc(50% - 50px);
+		}
+		@include media(1051px) {
+			margin-left: 40px;
+			width: calc(50% - 20px);
+		}
+		@include media(1051px) {
+			margin-left: 0px;
+			width: 50%;
+		}
+		@include media(769px) {
+			margin-bottom: 150px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+		}
 	}
 
 	&__title {
@@ -832,6 +1042,12 @@ body.scroll-hidden {
 		& li {
 			@include font($euclid_font, 16px, 24px);
 			letter-spacing: .1em;
+		}
+		@include media(769px) {
+			padding-left: 40px;
+		}
+		@include media(550px) {
+			padding-left: 20px;
 		}
 	}
 
@@ -948,10 +1164,15 @@ body.scroll-hidden {
 	}
 
 	&__slide {
-		margin-right: 100px;
-		flex: 0 0 calc(45%);
+		flex: 0 0 45%;
 		display: flex;
 		align-items: center;
+		@include media(1051px) {
+			flex-direction: column;
+		}
+		@include media(769px) {
+			flex: 0 0 100%;
+		}
 	}
 
 	&__image {
@@ -959,6 +1180,10 @@ body.scroll-hidden {
 		max-width: 250px;
 		& img {
 			max-width: 100%;
+			min-width: 140px;
+		}
+		@include media(1051px) {
+			margin-right: 0;
 		}
 	}
 
@@ -1192,7 +1417,7 @@ body.scroll-hidden {
 	}
 }
 
-// 
+
 .-footer-min-text {
 	@include font(null, 20px, 1em);
 }
